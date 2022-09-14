@@ -1,6 +1,3 @@
-from pickle import FALSE
-
-
 MINIG_REWARD = 10
 
 genesis_block = {
@@ -99,6 +96,10 @@ def verify_transaction(transaction):
         return False    
 
 
+def verify_transactions():
+    return all([verify_transaction(tx) for tx in open_transaction])
+
+
 def mine_block():
     last_block = blockchain[-1]
     hashed_block = hash_block(last_block)
@@ -107,11 +108,12 @@ def mine_block():
         'recipient': owner,
         'amount': MINIG_REWARD
     }
-    open_transaction.append(reward_transaction)
+    copied_transactions = open_transaction[:]
+    copied_transactions.append(reward_transaction)
     block = {
         "previous_hash": hashed_block,
         "index": len(blockchain),
-        "transactions": open_transaction,
+        "transactions": copied_transactions,
     }
     blockchain.append(block)
     return True
@@ -125,6 +127,7 @@ while waiting_for_input:
     print("2: Mine a new block")
     print("3: Output the blockchain blocks")
     print("4: Output participants")
+    print("5: Check transaction validity")
     print("h: Manipulate the chain")
     print("q: Quit")
 
@@ -145,6 +148,11 @@ while waiting_for_input:
         print_blockchain_elements()
     elif user_choise == "4":
         print(participants)
+    elif user_choise == "5":
+        if verify_transactions():
+            print('All transactions are valid')
+        else:
+            print('There are invalid transactions')
     elif user_choise == "h":
         if len(blockchain) >= 1:
             blockchain[0] = {
