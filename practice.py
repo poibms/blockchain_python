@@ -12,7 +12,7 @@ def decades_calc(age):
 
 print_user_info(name, age);
 
-decades_calc(age);
+decades_calc(age)
 
 print('-' * 20)
 
