@@ -71,3 +71,26 @@ a,b,c = person_list
 print(a)
 print(b)
 print(c)
+
+#4
+
+a = [10, 50, 75, 20]
+
+def result_print(f):
+    print(f(29))
+
+result_print(lambda el: el * 2)
+
+
+def result_print2(f, *args):
+    for argumet in args:
+        print(f(argumet))
+
+result_print2(lambda el: el * 2, 4, 10, 24, 52)
+
+
+def result_print3(f, *args):
+    for argumet in args:
+        print('Result {:^20.2f}'.format(f(argumet)))
+
+result_print2(lambda el: el / 2, 4, 10, 24, 51)
