@@ -1,3 +1,6 @@
+import random
+import datetime
+
 #1
 # name = input('Please input your name: ')
 # age = int(input('Please input your age: '))
@@ -94,3 +97,14 @@ def result_print3(f, *args):
         print('Result {:^20.2f}'.format(f(argumet)))
 
 result_print2(lambda el: el / 2, 4, 10, 24, 51)
+
+
+#5
+
+
+print('Random 0 - 1 numbers', random.randint(0, 1))
+print('Random 0 - 10 numbers',random.randint(0, 10))
+
+rn = random.random()
+
+print(str(rn) + str(datetime.datetime.now()))
