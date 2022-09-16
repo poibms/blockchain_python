@@ -21,6 +21,25 @@ def valid_proof(transaction, last_hash, proof):
     return guess_hash[0:2] == "00"
 
 
+def load_data():
+    with open('blockchain.txt', mode='r') as f:
+        global blockchain
+        global open_transaction
+        file_content = f.readlines()
+        blockchain = file_content[0]
+        open_transaction = file_content[1]
+
+
+load_data()
+
+
+def save_data():
+    with open('blockchain.txt', mode='w') as f:
+        f.write(str(blockchain))
+        f.write('\n')
+        f.write(str(open_transaction))
+
+
 def proof_of_work():
     last_block = blockchain[-1]
     last_hash = hash_block
@@ -88,6 +107,7 @@ def add_transaction(recipient, sender=owner, amount=1.0):
         open_transaction.append(transaction)
         participants.add(sender)
         participants.add(recipient)
+        save_data()
         return True
     return False
 
@@ -162,6 +182,7 @@ def mine_block():
         "proof": proof,
     }
     blockchain.append(block)
+    save_data()
     return True
 
 
