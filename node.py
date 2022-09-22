@@ -1,7 +1,5 @@
-from uuid import uuid4
-
 from blockchain import Blockchain
-from verification import Verification
+from utility.verification import Verification
 
 
 class Node:
@@ -82,3 +80,4 @@ class Node:
 
 node = Node()
 node.listen_for_input()
+print(__name__)

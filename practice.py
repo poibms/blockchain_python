@@ -113,49 +113,51 @@ import datetime
 
 #6
 
-user_input_status = True
-file = []
-binary = []
+# user_input_status = True
+# file = []
+# binary = []
+#
+#
+# def save_data():
+#     file_input = input('write somthing: ');
+#     file.append(file_input)
+#     with open('infinite_file.txt', mode='w') as f:
+#         f.write(json.dumps(file))
+#
+#
+# def load_data():
+#     with open('infinite_file.txt', mode='r') as f:
+#         file_content = json.loads(f.read())
+#         for line in file_content:
+#             print(line)
+#             line = f.readlines()
+#
+#
+# def save_binary_data():
+#     file_input = input('write somthing: ');
+#     binary.append(file_input)
+#     with open('infinite_file.p', mode='wb') as f:
+#         f.write(pickle.dumps(binary))
+#
+#
+# def load_binary_data():
+#     with open('infinite_file.p', mode='rb') as f:
+#         file_content = pickle.loads(f.read())
+#         for line in file_content:
+#             print(line)
+#
+#
+# while user_input_status:
+#     user_input = input('choose: ')
+#     if user_input == 'q':
+#         user_input_status = False
+#     elif user_input == 'r':
+#         load_data()
+#     elif user_input =='w':
+#         save_data()
+#     elif user_input == 'wb':
+#         save_binary_data()
+#     elif user_input == 'rb':
+#         load_binary_data()
 
 
-def save_data(): 
-    file_input = input('write somthing: ');
-    file.append(file_input)
-    with open('infinite_file.txt', mode='w') as f:
-        f.write(json.dumps(file))
-
-
-def load_data():
-    with open('infinite_file.txt', mode='r') as f:
-        file_content = json.loads(f.read())
-        for line in file_content:
-            print(line)
-            line = f.readlines()
-
-
-def save_binary_data():
-    file_input = input('write somthing: ');
-    binary.append(file_input)
-    with open('infinite_file.p', mode='wb') as f:
-        f.write(pickle.dumps(binary))
-
-
-def load_binary_data():
-    with open('infinite_file.p', mode='rb') as f:
-        file_content = pickle.loads(f.read())
-        for line in file_content: 
-            print(line)
-
-
-while user_input_status:
-    user_input = input('choose: ')
-    if user_input == 'q':
-        user_input_status = False
-    elif user_input == 'r':
-        load_data()
-    elif user_input =='w':
-        save_data()
-    elif user_input == 'wb':
-        save_binary_data()
-    elif user_input == 'rb':
-        load_binary_data()
