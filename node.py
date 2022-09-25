@@ -192,7 +192,7 @@ def remove_node(node_url):
     return jsonify(response), 200
 
 
-@app.route('/node', methods=['GET'])
+@app.route('/nodes', methods=['GET'])
 def get_nodes():
     nodes = blockchain.get_peer_nodes()
     response = {
